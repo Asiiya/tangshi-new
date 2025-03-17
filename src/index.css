@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+
+:root {
+  /* 中国风配色方案 */
+  --primary-color: #8d192b;      /* 赭石红 */
+  --secondary-color: #f7f1e6;    /* 宣纸色 */
+  --accent-color: #d4b106;       /* 金黄色 */
+  --text-color: #333333;         /* 墨黑色 */
+  --light-text-color: #666666;   /* 淡墨色 */
+  --border-color: #d9ceb9;       /* 米色边框 */
+  --background-color: #f9f6f2;   /* 淡米色背景 */
+  --header-background: linear-gradient(135deg, #8d192b, #a02c2c);
+  --header-background-rgb: 141, 25, 43;  /* 对应主色调的RGB值 */
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  
+  /* 新增颜色 */
+  --jade-color: #3a5c6e;         /* 青瓷色 */
+  --bamboo-color: #7a8b50;       /* 竹青色 */
+  --ink-color: #1c2c39;          /* 墨蓝色 */
+  --rice-color: #f0ebe1;         /* 米白色 */
+  --tea-color: #b68d58;          /* 茶褐色 */
+}
+
+/* 青瓷主题 */
+.theme-jade {
+  --primary-color: #3a5c6e;      /* 青瓷色 */
+  --secondary-color: #f0f7fa;    /* 淡青色 */
+  --accent-color: #d4a36b;       /* 琥珀色 */
+  --text-color: #2c3e50;         /* 深青色 */
+  --light-text-color: #607d8b;   /* 灰青色 */
+  --border-color: #c5d6de;       /* 淡青边框 */
+  --background-color: #f5f9fb;   /* 淡青背景 */
+  --header-background: linear-gradient(135deg, #3a5c6e, #4a7285);
+  --header-background-rgb: 58, 92, 110;  /* 对应主色调的RGB值 */
+  --card-shadow: 0 4px 12px rgba(58, 92, 110, 0.1);
+}
+
+/* 竹林主题 */
+.theme-bamboo {
+  --primary-color: #7a8b50;      /* 竹青色 */
+  --secondary-color: #f5f8f0;    /* 淡绿色 */
+  --accent-color: #d17842;       /* 赤褐色 */
+  --text-color: #2d3a1b;         /* 深绿色 */
+  --light-text-color: #5c6b45;   /* 灰绿色 */
+  --border-color: #d0dbb8;       /* 淡绿边框 */
+  --background-color: #f8faf3;   /* 淡绿背景 */
+  --header-background: linear-gradient(135deg, #7a8b50, #8a9b60);
+  --header-background-rgb: 122, 139, 80;  /* 对应主色调的RGB值 */
+  --card-shadow: 0 4px 12px rgba(122, 139, 80, 0.1);
+}
+
+/* 墨韵主题 */
+.theme-ink {
+  --primary-color: #1c2c39;      /* 墨蓝色 */
+  --secondary-color: #f5f5f7;    /* 淡灰色 */
+  --accent-color: #c0392b;       /* 朱砂色 */
+  --text-color: #1a1a1a;         /* 纯黑色 */
+  --light-text-color: #4a4a4a;   /* 深灰色 */
+  --border-color: #d1d1d6;       /* 淡灰边框 */
+  --background-color: #fafafa;   /* 纯白背景 */
+  --header-background: linear-gradient(135deg, #1c2c39, #2c3c49);
+  --header-background-rgb: 28, 44, 57;  /* 对应主色调的RGB值 */
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 金秋主题 */
+.theme-autumn {
+  --primary-color: #c0392b;      /* 枫叶红 */
+  --secondary-color: #fdf6e3;    /* 米黄色 */
+  --accent-color: #f39c12;       /* 金黄色 */
+  --text-color: #34495e;         /* 深蓝灰 */
+  --light-text-color: #7f8c8d;   /* 灰色 */
+  --border-color: #eee8d5;       /* 淡黄边框 */
+  --background-color: #fefbf3;   /* 淡黄背景 */
+  --header-background: linear-gradient(135deg, #c0392b, #d35400);
+  --header-background-rgb: 192, 57, 43;  /* 对应主色调的RGB值 */
+  --card-shadow: 0 4px 12px rgba(192, 57, 43, 0.1);
+}
+
+/* 夜间模式 */
+.dark-mode {
+  --background-color: #1c1c1c;
+  --secondary-color: #2a2a2a;
+  --text-color: #e0e0e0;
+  --light-text-color: #a0a0a0;
+  --border-color: #3a3a3a;
+  --header-background: linear-gradient(135deg, #3a1c1c, #2a1c1c);
+  --header-background-rgb: 58, 28, 28;  /* 对应主色调的RGB值 */
+}
+
+@font-face {
+  font-family: 'FangSong';
+  src: local('FangSong'), local('STFangsong'), local('FangSong_GB2312');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KaiTi';
+  src: local('KaiTi'), local('STKaiti'), local('KaiTi_GB2312');
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Serif SC', 'FangSong', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d9ceb9' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* 增强文字清晰度 */
+.poem-content {
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+}
+
+.brush-title {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* 添加一些通用样式类 */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--primary-color), #a02c2c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 中国风分隔线 */
+.chinese-divider {
+  position: relative;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 20px 0;
+}
+
+.chinese-divider::before {
+  content: "❖";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--background-color);
+  padding: 0 15px;
+  color: var(--primary-color);
+  font-size: 16px;
+}
+
+/* 毛笔字风格标题 */
+.brush-title {
+  font-family: 'KaiTi', 'STKaiti', serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--ink-color);
+}
+
+/* 宣纸背景 */
+.paper-bg {
+  background-color: var(--secondary-color);
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d9ceb9' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 书签样式 */
+.bookmark {
+  position: relative;
+  padding: 4px 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 4px 0 0 4px;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.bookmark:after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-left: 10px solid var(--primary-color);
+  border-bottom: 14px solid transparent;
+}
+
+/* 水墨动画效果 */
+@keyframes ink-spread {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.ink-animation {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 70%);
+  transform: scale(0);
+  pointer-events: none;
+  animation: ink-spread 1s ease-out forwards;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  .brush-title {
+    font-size: 1.5rem !important;
+  }
+}

@@ -1,0 +1,935 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.card {
+  padding: 2em;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7b1f1f;
+}
+
+/* 美化标题 */
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 美化链接 */
+a {
+  color: var(--primary-color);
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #a02c2c;
+}
+
+/* 美化按钮 */
+.ant-btn-primary {
+  background: var(--primary-color);
+}
+
+.ant-btn-primary:hover {
+  background: #a02c2c !important;
+}
+
+/* 美化菜单 */
+.ant-menu-dark.ant-menu-horizontal .ant-menu-item-selected {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 美化标签 */
+.ant-tag {
+  border-radius: 16px;
+  padding: 0 10px;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+/* 美化卡片 */
+.ant-card {
+  transition: all 0.3s ease;
+}
+
+.ant-card-hoverable:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow);
+}
+
+/* 翻页动画 */
+@keyframes page-turn {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateY(90deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.page-transition-enter {
+  animation: page-turn 0.6s ease-in-out;
+}
+
+/* 水墨风格卡片 */
+.ink-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.ink-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d9ceb9' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.ink-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 印章效果 */
+.stamp {
+  position: relative;
+  display: inline-block;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  transform: rotate(-5deg);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.stamp:hover {
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+.stamp::after {
+  content: "印";
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  font-size: 0.8rem;
+  background-color: var(--primary-color);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 书架效果 */
+.bookshelf {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(to bottom, #f0e6d2, #e6d9c0);
+  border-radius: 12px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d9ceb9;
+}
+
+.bookshelf::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.1) 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+.bookshelf::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 0 0 12px 12px;
+}
+
+.book {
+  height: 160px;
+  width: 30px;
+  background: var(--primary-color);
+  border-radius: 2px 5px 5px 2px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 10px 5px;
+  font-family: 'KaiTi', 'STKaiti', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.book::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(255,255,255,0.1) 0%, 
+    rgba(255,255,255,0) 50%, 
+    rgba(0,0,0,0.1) 100%);
+}
+
+.book:nth-child(2n) {
+  background: var(--jade-color);
+  height: 150px;
+}
+
+.book:nth-child(3n) {
+  background: var(--bamboo-color);
+  height: 155px;
+}
+
+.book:nth-child(5n) {
+  background: var(--ink-color);
+  height: 165px;
+}
+
+.book:nth-child(7n) {
+  background: var(--accent-color);
+  height: 145px;
+}
+
+.book:hover {
+  transform: translateY(-15px) rotate(2deg);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* 加载动画 */
+@keyframes ink-loading {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+.ink-loading {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, var(--primary-color) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+  margin: 40px auto;
+  animation: ink-loading 1.5s infinite;
+}
+
+/* 夜间模式切换按钮 */
+.mode-switch {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.mode-switch:hover {
+  transform: scale(1.1);
+}
+
+/* 诗词内容样式 */
+.poem-content {
+  font-family: 'FangSong', 'STFangsong', serif;
+  font-size: 1.2rem;
+  line-height: 2;
+  letter-spacing: 1px;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.poem-translation {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--light-text-color);
+  margin-top: 20px;
+  text-align: left;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+}
+
+/* 3D书架效果 */
+.bookshelf-container {
+  margin-bottom: 40px;
+}
+
+.bookshelf-description {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.bookshelf-3d {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin: 50px auto;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.shelf-top, .shelf-front, .shelf-right, .shelf-left, .shelf-back {
+  position: absolute;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10L90 10L90 90L10 90L10 10Z' fill='%23a87329' fill-opacity='0.4'/%3E%3Cpath d='M30 10L70 10L70 90L30 90L30 10Z' fill='%23a87329' fill-opacity='0.6'/%3E%3Cpath d='M50 10L60 10L60 90L50 90L50 10Z' fill='%23a87329' fill-opacity='0.8'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.shelf-top {
+  width: 100%;
+  height: 20px;
+  top: 0;
+  transform: rotateX(90deg) translateZ(10px);
+  background-color: #b08d57;
+}
+
+.shelf-front {
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  transform: translateZ(150px);
+  background-color: #8b6b43;
+}
+
+.shelf-right {
+  width: 300px;
+  height: 20px;
+  right: 0;
+  bottom: 0;
+  transform: rotateY(90deg) translateZ(150px);
+  background-color: #9e7b4d;
+}
+
+.shelf-left {
+  width: 300px;
+  height: 20px;
+  left: 0;
+  bottom: 0;
+  transform: rotateY(-90deg) translateZ(0);
+  background-color: #9e7b4d;
+}
+
+.shelf-back {
+  width: 100%;
+  height: 200px;
+  bottom: 20px;
+  transform: translateZ(-150px);
+  background-color: #a87329;
+}
+
+.book-3d {
+  position: absolute;
+  bottom: 20px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  cursor: pointer;
+  transform-origin: bottom center;
+}
+
+.book-3d:hover {
+  transform: translateY(-20px) translateZ(30px) rotateX(-5deg);
+  z-index: 100;
+}
+
+.book-selected {
+  animation: book-pull 0.5s forwards;
+}
+
+@keyframes book-pull {
+  0% { transform: translateZ(0); }
+  100% { transform: translateZ(100px) translateX(50px); }
+}
+
+.book-spine, .book-cover, .book-top, .book-bottom, .book-right, .book-left {
+  position: absolute;
+  background-color: inherit;
+}
+
+.book-spine {
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: white;
+  font-family: 'KaiTi', 'STKaiti', serif;
+  padding: 10px 5px;
+  background-image: linear-gradient(to bottom, 
+    rgba(255,255,255,0.1) 0%, 
+    rgba(255,255,255,0) 50%, 
+    rgba(0,0,0,0.1) 100%);
+}
+
+.book-cover {
+  width: 100px;
+  height: 100%;
+  transform: rotateY(90deg) translateZ(0);
+  transform-origin: left;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: white;
+  font-family: 'KaiTi', 'STKaiti', serif;
+  background-image: linear-gradient(to right, 
+    rgba(0,0,0,0.2) 0%, 
+    rgba(0,0,0,0) 20%, 
+    rgba(0,0,0,0) 80%, 
+    rgba(0,0,0,0.2) 100%);
+}
+
+.book-cover-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.book-cover-author {
+  font-size: 14px;
+}
+
+.book-top {
+  width: 100%;
+  height: 5px;
+  top: 0;
+  transform: rotateX(90deg) translateZ(2.5px);
+  background-color: rgba(255,255,255,0.3);
+}
+
+.book-bottom {
+  width: 100%;
+  height: 5px;
+  bottom: 0;
+  transform: rotateX(-90deg) translateZ(2.5px);
+  background-color: rgba(0,0,0,0.3);
+}
+
+.book-right {
+  width: 5px;
+  height: 100%;
+  right: 0;
+  transform: rotateY(90deg) translateZ(2.5px);
+  background-color: rgba(0,0,0,0.2);
+}
+
+.book-left {
+  width: 5px;
+  height: 100%;
+  left: 0;
+  transform: rotateY(-90deg) translateZ(2.5px);
+  background-color: rgba(0,0,0,0.2);
+}
+
+.book-title {
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.book-title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    rgba(255,215,0,0) 0%, 
+    rgba(255,215,0,0.1) 25%, 
+    rgba(255,215,0,0.3) 50%, 
+    rgba(255,215,0,0.1) 75%, 
+    rgba(255,215,0,0) 100%);
+  background-size: 200% 200%;
+  animation: gold-shine 3s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes gold-shine {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
+}
+
+/* 朗读动画效果 */
+.poem-reader-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+.poem-reader-content {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  margin: 20px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+.poem-reader-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.poem-reader-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.poem-reader-content::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 3px;
+}
+
+.poem-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.current-line {
+  animation: line-highlight 2s infinite alternate;
+}
+
+@keyframes line-highlight {
+  0% { background-color: rgba(var(--primary-color-rgb), 0.03); }
+  100% { background-color: rgba(var(--primary-color-rgb), 0.08); }
+}
+
+.poem-char {
+  position: relative;
+}
+
+.current-char {
+  animation: char-pulse 1s infinite alternate;
+}
+
+@keyframes char-pulse {
+  0% { transform: scale(1.1); }
+  100% { transform: scale(1.3); }
+}
+
+@keyframes ink-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+
+/* 卷轴模式样式 */
+.scroll-mode-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: 40px 0;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.scroll-mode-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  margin: 0;
+  border-radius: 0;
+  background-color: var(--background-color);
+}
+
+.scroll-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d9ceb9' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.scroll-content {
+  display: flex;
+  align-items: center;
+  height: 80%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  background-color: var(--secondary-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  position: relative;
+}
+
+.scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-start-handle, .scroll-end-handle {
+  width: 40px;
+  height: 100%;
+  background-color: #a87329;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 20v20H0V20h20zm20 0v20H20V20h20zM20 0v20H0V0h20zm20 0v20H20V0h20z' fill='%23805b28' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+  flex-shrink: 0;
+  position: relative;
+}
+
+.scroll-start-handle::after, .scroll-end-handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 30px;
+  background-color: #805b28;
+  border-radius: 5px;
+}
+
+.scroll-start-handle::after {
+  right: 5px;
+  transform: translateY(-50%);
+}
+
+.scroll-end-handle::after {
+  left: 5px;
+  transform: translateY(-50%);
+}
+
+.scroll-poem {
+  padding: 40px 60px;
+  min-width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d9ceb9' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+  position: relative;
+}
+
+.scroll-poem::before, .scroll-poem::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(0,0,0,0.1) 0%, 
+    rgba(0,0,0,0.2) 50%, 
+    rgba(0,0,0,0.1) 100%);
+}
+
+.scroll-poem::before {
+  left: 30px;
+}
+
+.scroll-poem::after {
+  right: 30px;
+}
+
+.scroll-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: 'KaiTi', 'STKaiti', serif;
+  color: var(--primary-color);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.scroll-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background-color: var(--border-color);
+}
+
+.scroll-author {
+  font-size: 16px;
+  color: var(--light-text-color);
+  margin-bottom: 30px;
+}
+
+.scroll-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.scroll-line {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-family: 'FangSong', 'STFangsong', serif;
+  color: var(--text-color);
+  position: relative;
+}
+
+.scroll-punctuation {
+  color: var(--light-text-color);
+  margin-left: 5px;
+}
+
+.scroll-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+/* 诗词配图样式 */
+.poem-illustration-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.illustration-container {
+  position: relative;
+}
+
+.illustration-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  padding: 20px 10px 10px;
+  color: white;
+  text-align: center;
+}
+
+/* 传统书架样式 */
+.traditional-bookshelf-container {
+  margin-bottom: 40px;
+}
+
+.traditional-bookshelf {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.bookshelf-section {
+  background: linear-gradient(to bottom, #f0e6d2, #e6d9c0);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* 卷轴样式 */
+.scroll-container {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.scroll-item {
+  position: relative;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d9ceb9' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-handle-top, .scroll-handle-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background-color: #8d6e63;
+  border-radius: 3px;
+}
+
+.scroll-handle-top {
+  top: -8px;
+}
+
+.scroll-handle-bottom {
+  bottom: -8px;
+}
+
+.scroll-content {
+  padding: 15px 10px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-family: 'FangSong', 'STFangsong', serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.scroll-author {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.scroll-item:hover {
+  transform: translateY(-5px) rotate(1deg);
+  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.scroll-selected {
+  animation: scroll-pull 0.5s forwards;
+}
+
+@keyframes scroll-pull {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* 水墨动画 */
+@keyframes ink-animation {
+  0% {
+    transform: scale(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.ink-animation {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
+  z-index: 1000;
+  animation: ink-animation 0.6s ease-out forwards;
+  pointer-events: none;
+}
