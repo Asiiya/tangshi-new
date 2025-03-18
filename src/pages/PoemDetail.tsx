@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Typography, Card, Button, Divider, Space, message, Tooltip } from 'antd';
+import { Typography, Card, Button, Divider, Space, message, Tooltip, Collapse } from 'antd';
 import { ArrowLeftOutlined, StarOutlined, StarFilled, BookOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { Poem, poems } from '../data/poems';
 import { isFavorite, toggleFavorite } from '../utils/favoriteUtils';
 import ReciteMode from '../components/ReciteMode';
 import ScrollMode from '../components/ScrollMode';
 import PoemIllustration from '../components/PoemIllustration';
+import SpeechControls from '../components/SpeechControls';
 
 const { Title, Paragraph, Text } = Typography;
+const { Panel } = Collapse;
 
 const PoemDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,6 +19,7 @@ const PoemDetail = () => {
   const [favorite, setFavorite] = useState(false);
   const [reciteMode, setReciteMode] = useState(false);
   const [scrollMode, setScrollMode] = useState(false);
+  const [showSpeechControls, setShowSpeechControls] = useState(false);
 
   useEffect(() => {
     if (id) {
@@ -40,6 +43,23 @@ const PoemDetail = () => {
 
   const handleScrollModeClick = () => {
     setScrollMode(true);
+  };
+
+  const toggleSpeechControls = () => {
+    setShowSpeechControls(!showSpeechControls);
+  };
+
+  // 格式化诗词文本用于朗读
+  const getFormattedTextForSpeech = () => {
+    if (!poem) return '';
+    
+    let result = `${poem.title}，${poem.dynasty}代，${poem.author}。`;
+    
+    // 将诗词内容中的标点符号替换为语音暂停
+    const content = poem.content.replace(/[，。！？、]/g, match => `${match}，`);
+    result += content;
+    
+    return result;
   };
 
   if (!poem) {
@@ -127,6 +147,14 @@ const PoemDetail = () => {
               </Button>
             ))}
           </Space>
+          
+          <Divider />
+          
+          <Collapse>
+            <Panel header="朗读设置" key="1">
+              <SpeechControls text={getFormattedTextForSpeech()} />
+            </Panel>
+          </Collapse>
           
           {poem.translation && (
             <>

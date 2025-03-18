@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Typography, Card, List, Tag, Button, Input, Divider, Space, Collapse, Modal } from 'antd';
-import { ReadOutlined, BookOutlined, TagOutlined, TeamOutlined, SearchOutlined } from '@ant-design/icons';
+import { ReadOutlined, BookOutlined, TagOutlined, TeamOutlined, SearchOutlined, SoundOutlined } from '@ant-design/icons';
 import { stories, Story } from '../data/stories';
+import SpeechControls from '../components/SpeechControls';
 
 const { Title, Paragraph, Text } = Typography;
 const { Search } = Input;
@@ -68,6 +69,18 @@ const StoriesPage: React.FC = () => {
   const showStoryDetail = (story: Story) => {
     setCurrentStory(story);
     setModalVisible(true);
+  };
+
+  // 格式化故事文本用于朗读
+  const getFormattedTextForSpeech = (story: Story) => {
+    if (!story) return '';
+    
+    let result = `${story.title}，适合${story.ageGroup}的儿童。`;
+    
+    // 添加正文
+    result += story.content;
+    
+    return result;
   };
 
   return (
@@ -191,7 +204,25 @@ const StoriesPage: React.FC = () => {
             <div className="story-content" style={{ fontSize: '16px', lineHeight: '1.8', marginBottom: '20px' }}>
               {currentStory.content}
             </div>
+            
             <Divider />
+            
+            <Collapse>
+              <Panel 
+                header={
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <SoundOutlined style={{ marginRight: 8 }} />
+                    朗读故事
+                  </div>
+                } 
+                key="1"
+              >
+                <SpeechControls text={getFormattedTextForSpeech(currentStory)} />
+              </Panel>
+            </Collapse>
+            
+            <Divider />
+            
             <div style={{ marginBottom: '16px' }}>
               <Text strong style={{ fontSize: '16px' }}>适合年龄：</Text> {currentStory.ageGroup}
             </div>
