@@ -5,55 +5,55 @@ import { PictureOutlined, ReloadOutlined } from '@ant-design/icons';
 
 const { Text } = Typography;
 
-// 模拟的诗词关键词到图片的映射
+// 更新的诗词关键词到图片的映射（使用更可靠的图片链接）
 const keywordImageMap: Record<string, string[]> = {
   '山': [
-    'https://img.zcool.cn/community/01f9ea5af3f64ca801216045404549.jpg@1280w_1l_2o_100sh.jpg',
-    'https://img.zcool.cn/community/0183465b02f77aa801219c77f1f58f.jpg@1280w_1l_2o_100sh.jpg'
+    'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1080',
+    'https://images.unsplash.com/photo-1445543949571-ffc3e0e2f55e?auto=format&fit=crop&w=1080'
   ],
   '水': [
-    'https://img.zcool.cn/community/01f4c75af3f64ca801216045a9c4a0.jpg@1280w_1l_2o_100sh.jpg',
-    'https://img.zcool.cn/community/01a0c85af3f64ca8012160454b7f9d.jpg@1280w_1l_2o_100sh.jpg'
+    'https://images.unsplash.com/photo-1500829243541-74b677fecc30?auto=format&fit=crop&w=1080',
+    'https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1080'
   ],
   '月': [
-    'https://img.zcool.cn/community/031f2f75af3f64ca801216045e7c2c9.jpg@1280w_1l_2o_100sh.jpg',
-    'https://img.zcool.cn/community/01f9ea5af3f64ca801216045404549.jpg@1280w_1l_2o_100sh.jpg'
+    'https://images.unsplash.com/photo-1514912885225-5c9ec8507d68?auto=format&fit=crop&w=1080',
+    'https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?auto=format&fit=crop&w=1080'
   ],
   '花': [
-    'https://img.zcool.cn/community/01f4c75af3f64ca801216045a9c4a0.jpg@1280w_1l_2o_100sh.jpg',
-    'https://img.zcool.cn/community/01a0c85af3f64ca8012160454b7f9d.jpg@1280w_1l_2o_100sh.jpg'
+    'https://images.unsplash.com/photo-1457089328109-e5d9bd499191?auto=format&fit=crop&w=1080',
+    'https://images.unsplash.com/photo-1518634534903-0c1bd3a5c9f7?auto=format&fit=crop&w=1080'
   ],
   '鸟': [
-    'https://img.zcool.cn/community/031f2f75af3f64ca801216045e7c2c9.jpg@1280w_1l_2o_100sh.jpg',
-    'https://img.zcool.cn/community/01f9ea5af3f64ca801216045404549.jpg@1280w_1l_2o_100sh.jpg'
+    'https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?auto=format&fit=crop&w=1080',
+    'https://images.unsplash.com/photo-1593528858476-a95ccf1d8abb?auto=format&fit=crop&w=1080'
   ],
   '风': [
-    'https://img.zcool.cn/community/01f4c75af3f64ca801216045a9c4a0.jpg@1280w_1l_2o_100sh.jpg',
-    'https://img.zcool.cn/community/01a0c85af3f64ca8012160454b7f9d.jpg@1280w_1l_2o_100sh.jpg'
+    'https://images.unsplash.com/photo-1519303463695-12b123bb018f?auto=format&fit=crop&w=1080',
+    'https://images.unsplash.com/photo-1505672678657-cc7037095e60?auto=format&fit=crop&w=1080'
   ],
   '雨': [
-    'https://img.zcool.cn/community/031f2f75af3f64ca801216045e7c2c9.jpg@1280w_1l_2o_100sh.jpg',
-    'https://img.zcool.cn/community/01f9ea5af3f64ca801216045404549.jpg@1280w_1l_2o_100sh.jpg'
+    'https://images.unsplash.com/photo-1528484701073-2b96fa89ea3d?auto=format&fit=crop&w=1080',
+    'https://images.unsplash.com/photo-1501999635878-71cb5379c2d8?auto=format&fit=crop&w=1080'
   ],
   '云': [
-    'https://img.zcool.cn/community/01f4c75af3f64ca801216045a9c4a0.jpg@1280w_1l_2o_100sh.jpg',
-    'https://img.zcool.cn/community/01a0c85af3f64ca8012160454b7f9d.jpg@1280w_1l_2o_100sh.jpg'
+    'https://images.unsplash.com/photo-1505533321630-975218a5f66f?auto=format&fit=crop&w=1080',
+    'https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1080'
   ],
   '雪': [
-    'https://img.zcool.cn/community/031f2f75af3f64ca801216045e7c2c9.jpg@1280w_1l_2o_100sh.jpg',
-    'https://img.zcool.cn/community/01f9ea5af3f64ca801216045404549.jpg@1280w_1l_2o_100sh.jpg'
+    'https://images.unsplash.com/photo-1516431883659-655d41c09bf9?auto=format&fit=crop&w=1080',
+    'https://images.unsplash.com/photo-1550155864-68938942e2f1?auto=format&fit=crop&w=1080'
   ],
   '日': [
-    'https://img.zcool.cn/community/01f4c75af3f64ca801216045a9c4a0.jpg@1280w_1l_2o_100sh.jpg',
-    'https://img.zcool.cn/community/01a0c85af3f64ca8012160454b7f9d.jpg@1280w_1l_2o_100sh.jpg'
+    'https://images.unsplash.com/photo-1547284902-d947a54268e1?auto=format&fit=crop&w=1080',
+    'https://images.unsplash.com/photo-1541417904950-b855846fe074?auto=format&fit=crop&w=1080'
   ]
 };
 
 // 默认图片，当没有匹配的关键词时使用
 const defaultImages = [
-  'https://img.zcool.cn/community/01f9ea5af3f64ca801216045404549.jpg@1280w_1l_2o_100sh.jpg',
-  'https://img.zcool.cn/community/01f4c75af3f64ca801216045a9c4a0.jpg@1280w_1l_2o_100sh.jpg',
-  'https://img.zcool.cn/community/031f2f75af3f64ca801216045e7c2c9.jpg@1280w_1l_2o_100sh.jpg'
+  'https://images.unsplash.com/photo-1571832743254-3def2e38ef87?auto=format&fit=crop&w=1080',
+  'https://images.unsplash.com/photo-1517309246852-c865addbbeff?auto=format&fit=crop&w=1080',
+  'https://images.unsplash.com/photo-1518397823582-be54e5fda62d?auto=format&fit=crop&w=1080'
 ];
 
 interface PoemIllustrationProps {
