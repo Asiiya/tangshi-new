@@ -8,7 +8,8 @@ import {
   BulbOutlined,
   MenuOutlined,
   BgColorsOutlined,
-  SettingOutlined
+  SettingOutlined,
+  ReadOutlined
 } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 
@@ -177,6 +178,12 @@ const Header = () => {
                 onClick: () => navigate('/favorites')
               },
               {
+                key: '/stories',
+                label: '儿童故事',
+                icon: <ReadOutlined />,
+                onClick: () => navigate('/stories')
+              },
+              {
                 key: '/settings',
                 label: '设置',
                 icon: <SettingOutlined />,
@@ -212,6 +219,12 @@ const Header = () => {
                   label: '收藏',
                   icon: <StarOutlined />,
                   onClick: () => navigate('/favorites')
+                },
+                {
+                  key: '/stories',
+                  label: '儿童故事',
+                  icon: <ReadOutlined />,
+                  onClick: () => navigate('/stories')
                 },
                 {
                   key: '/settings',

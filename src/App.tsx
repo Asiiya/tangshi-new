@@ -16,6 +16,7 @@ import AuthorDetail from './pages/AuthorDetail'
 import FavoritesPage from './pages/FavoritesPage'
 import RecitePage from './pages/RecitePage'
 import SettingsPage from './pages/SettingsPage'
+import StoriesPage from './pages/StoriesPage'
 
 const { Content } = Layout
 
@@ -109,6 +110,7 @@ function App() {
                   <Route path="/favorites" element={<FavoritesPage />} />
                   <Route path="/recite" element={<RecitePage />} />
                   <Route path="/settings" element={<SettingsPage />} />
+                  <Route path="/stories" element={<StoriesPage />} />
                 </Routes>
               </PageTransition>
             </Content>
