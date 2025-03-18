@@ -5,55 +5,55 @@ import { PictureOutlined, ReloadOutlined } from '@ant-design/icons';
 
 const { Text } = Typography;
 
-// 更新的诗词关键词到图片的映射（使用更可靠的图片链接）
+// 更新的诗词关键词到图片的映射（使用稳定的CDN图片链接）
 const keywordImageMap: Record<string, string[]> = {
   '山': [
-    'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1080',
-    'https://images.unsplash.com/photo-1445543949571-ffc3e0e2f55e?auto=format&fit=crop&w=1080'
+    'https://wallpaperaccess.com/full/800309.jpg',
+    'https://png.pngtree.com/background/20230612/original/pngtree-high-mountains-chinese-style-ink-painting-picture-image_3176896.jpg'
   ],
   '水': [
-    'https://images.unsplash.com/photo-1500829243541-74b677fecc30?auto=format&fit=crop&w=1080',
-    'https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1080'
+    'https://img.freepik.com/free-photo/beautiful-scenery-summit-mount-everest-covered-with-snow-white-clouds_181624-21317.jpg',
+    'https://png.pngtree.com/background/20230612/original/pngtree-chinese-style-ink-landscape-picture-image_3176898.jpg'
   ],
   '月': [
-    'https://images.unsplash.com/photo-1514912885225-5c9ec8507d68?auto=format&fit=crop&w=1080',
-    'https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?auto=format&fit=crop&w=1080'
+    'https://wallpaperaccess.com/full/1403923.jpg',
+    'https://png.pngtree.com/thumb_back/fw800/background/20230612/pngtree-hand-painted-moon-mountains-chinese-style-ink-landscape-picture-image_2906070.jpg'
   ],
   '花': [
-    'https://images.unsplash.com/photo-1457089328109-e5d9bd499191?auto=format&fit=crop&w=1080',
-    'https://images.unsplash.com/photo-1518634534903-0c1bd3a5c9f7?auto=format&fit=crop&w=1080'
+    'https://wallpaperaccess.com/full/1624848.jpg',
+    'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg'
   ],
   '鸟': [
-    'https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?auto=format&fit=crop&w=1080',
-    'https://images.unsplash.com/photo-1593528858476-a95ccf1d8abb?auto=format&fit=crop&w=1080'
+    'https://wallpaperaccess.com/full/1294117.jpg',
+    'https://png.pngtree.com/background/20230612/original/pngtree-ink-landscape-painting-of-a-bird-flying-over-mountains-picture-image_3176955.jpg'
   ],
   '风': [
-    'https://images.unsplash.com/photo-1519303463695-12b123bb018f?auto=format&fit=crop&w=1080',
-    'https://images.unsplash.com/photo-1505672678657-cc7037095e60?auto=format&fit=crop&w=1080'
+    'https://wallpaperaccess.com/full/1294166.jpg',
+    'https://img.freepik.com/free-photo/chinese-painting-scenery-landscape-background_53876-130924.jpg'
   ],
   '雨': [
-    'https://images.unsplash.com/photo-1528484701073-2b96fa89ea3d?auto=format&fit=crop&w=1080',
-    'https://images.unsplash.com/photo-1501999635878-71cb5379c2d8?auto=format&fit=crop&w=1080'
+    'https://wallpaperaccess.com/full/1624845.jpg',
+    'https://png.pngtree.com/thumb_back/fw800/background/20230612/pngtree-ink-painting-of-mountain-and-river-with-chinese-style-decoration-picture-image_2906246.jpg'
   ],
   '云': [
-    'https://images.unsplash.com/photo-1505533321630-975218a5f66f?auto=format&fit=crop&w=1080',
-    'https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1080'
+    'https://wallpaperaccess.com/full/3932235.jpg',
+    'https://img.freepik.com/free-photo/painting-lake-with-mountain-scenery_188544-9131.jpg'
   ],
   '雪': [
-    'https://images.unsplash.com/photo-1516431883659-655d41c09bf9?auto=format&fit=crop&w=1080',
-    'https://images.unsplash.com/photo-1550155864-68938942e2f1?auto=format&fit=crop&w=1080'
+    'https://wallpaperaccess.com/full/1294156.jpg',
+    'https://png.pngtree.com/thumb_back/fw800/background/20230612/pngtree-landscape-painting-of-mountains-and-rivers-in-chinese-style-ink-picture-image_2906247.jpg'
   ],
   '日': [
-    'https://images.unsplash.com/photo-1547284902-d947a54268e1?auto=format&fit=crop&w=1080',
-    'https://images.unsplash.com/photo-1541417904950-b855846fe074?auto=format&fit=crop&w=1080'
+    'https://wallpaperaccess.com/full/1624851.jpg',
+    'https://png.pngtree.com/thumb_back/fw800/background/20230612/pngtree-chinese-style-ink-landscape-picture-image_2883782.jpg'
   ]
 };
 
 // 默认图片，当没有匹配的关键词时使用
 const defaultImages = [
-  'https://images.unsplash.com/photo-1571832743254-3def2e38ef87?auto=format&fit=crop&w=1080',
-  'https://images.unsplash.com/photo-1517309246852-c865addbbeff?auto=format&fit=crop&w=1080',
-  'https://images.unsplash.com/photo-1518397823582-be54e5fda62d?auto=format&fit=crop&w=1080'
+  'https://wallpaperaccess.com/full/1624854.jpg',
+  'https://img.freepik.com/free-photo/painting-mountain-landscape-with-high-rocky-mountains-sunset_188544-9126.jpg',
+  'https://png.pngtree.com/thumb_back/fw800/background/20230612/pngtree-ink-drawing-of-a-mountain-landscape-with-chinese-style-decoration-picture-image_2906245.jpg'
 ];
 
 interface PoemIllustrationProps {
